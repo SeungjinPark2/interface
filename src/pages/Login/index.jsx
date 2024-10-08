@@ -1,5 +1,11 @@
+import LoginForm from "./LoginForm";
+
 function Login() {
-  return <>hello login</>;
+  return (
+    <>
+      <LoginForm />
+    </>
+  );
 }
 
 export default Login;

@@ -1,5 +1,11 @@
+import Header from "../../components/Header";
+
 function User() {
-  return <>hello user</>;
+  return (
+    <>
+      <Header></Header>
+    </>
+  );
 }
 
 export default User;
