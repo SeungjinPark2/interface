@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import { useAuthStore } from "../../../hooks/authStore";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const SignupForm = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const { signup } = useAuthStore();
   const [formData, setFormData] = useState({
     id: "",
@@ -46,16 +48,16 @@ const SignupForm = () => {
     <Container className="mt-5">
       <Row className="justify-content-md-center">
         <Col md={4}>
-          <h2 className="text-center">Signup</h2>
+          <h2 className="text-center">{t("signup.signup")}</h2>
           {error && <div className="alert alert-danger">{error}</div>}
           {success && <div className="alert alert-success">{success}</div>}
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicId">
-              <Form.Label>ID</Form.Label>
+              <Form.Label>{t("signup.id")}</Form.Label>
               <Form.Control
                 type="text"
                 name="id"
-                placeholder="Enter your ID"
+                placeholder={t("signup.id_hint")}
                 value={formData.id}
                 onChange={handleChange}
                 required
@@ -63,11 +65,11 @@ const SignupForm = () => {
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword" className="mt-3">
-              <Form.Label>Password</Form.Label>
+              <Form.Label>{t("signup.password")}</Form.Label>
               <Form.Control
                 type="password"
                 name="password"
-                placeholder="Password"
+                placeholder={t("signup.password_hint")}
                 value={formData.password}
                 onChange={handleChange}
                 required
@@ -75,11 +77,11 @@ const SignupForm = () => {
             </Form.Group>
 
             <Form.Group controlId="formBasicPasswordConfirm" className="mt-3">
-              <Form.Label>Confirm Password</Form.Label>
+              <Form.Label>{t("signup.password_confirm")}</Form.Label>
               <Form.Control
                 type="password"
                 name="confirmPassword"
-                placeholder="Confirm Password"
+                placeholder={t("signup.password_confirm_hint")}
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 required

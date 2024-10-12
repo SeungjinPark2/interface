@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Form, Button, Container, Row, Col, Anchor } from "react-bootstrap";
 import { useAuthStore } from "../../../hooks/authStore";
+import { useTranslation } from "react-i18next";
 
 const LoginForm = () => {
   const { login } = useAuthStore();
   const [error, setError] = useState(null);
+  const { t } = useTranslation();
 
   const [formData, setFormData] = useState({
     id: "",
@@ -34,15 +36,15 @@ const LoginForm = () => {
     <Container className="mt-5">
       <Row className="justify-content-md-center">
         <Col md={4}>
-          <h2 className="text-center">Login</h2>
+          <h2 className="text-center">{t("login.login")}</h2>
           {error && <div className="alert alert-danger">{error}</div>}
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicId">
-              <Form.Label>ID</Form.Label>
+              <Form.Label>{t("login.id")}</Form.Label>
               <Form.Control
                 type="text"
                 name="id"
-                placeholder="Enter your ID"
+                placeholder={t("login.id_hint")}
                 value={formData.id}
                 onChange={handleChange}
                 required
@@ -50,19 +52,19 @@ const LoginForm = () => {
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword" className="mt-3">
-              <Form.Label>Password</Form.Label>
+              <Form.Label>{t("login.password")}</Form.Label>
               <Form.Control
                 type="password"
                 name="password"
-                placeholder="Password"
+                placeholder={t("login.password_hint")}
                 value={formData.password}
                 onChange={handleChange}
                 required
               />
             </Form.Group>
-            <Anchor href="/signup">sign up</Anchor>
+            <Anchor href="/signup">{t("login.signup_link")}</Anchor>
             <Button variant="primary" type="submit" className="mt-4 w-100">
-              Login
+              {t("login.login")}
             </Button>
           </Form>
         </Col>
