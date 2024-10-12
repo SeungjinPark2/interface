@@ -1,16 +1,16 @@
 import { Navigate, Outlet, useRoutes } from "react-router-dom";
 import "./App.css";
 import { useAuthStore } from "./hooks/authStore";
-import User from "./pages/User";
 import LoginForm from "./pages/Login/LoginForm";
 import SignupForm from "./pages/Login/SignupForm";
+import Home from "./pages/Home";
 
 function App() {
   const { token } = useAuthStore();
   const routes = (isLoggedIn) => [
     {
-      path: "/app",
-      element: isLoggedIn ? <User /> : <Navigate to="/login" />,
+      path: "/home",
+      element: isLoggedIn ? <Home /> : <Navigate to="/login" />,
       children: [
         // { path: '/dashboard', element: <Dashboard /> },
         // { path: '/account', element: <Account /> },
@@ -27,7 +27,7 @@ function App() {
     },
     {
       path: "/",
-      element: !isLoggedIn ? <Outlet /> : <Navigate to="/app" />,
+      element: !isLoggedIn ? <Outlet /> : <Navigate to="/home" />,
       children: [
         { path: "login", element: <LoginForm /> },
         { path: "signup", element: <SignupForm /> },

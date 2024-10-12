@@ -1,26 +1,52 @@
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
+import { useAuthStore } from "../hooks/authStore";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+  const { t } = useTranslation();
+  const { logout } = useAuthStore();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
+
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Brand href="#home">KR Bank</Navbar.Brand>
+    <Navbar expand="lg" className="bg-dark-subtle">
+      <Container
+        style={{
+          maxWidth: "960px",
+        }}
+      >
+        <Navbar.Brand href="#home" className="fw-bold">
+          {t("header.logo")}
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">홈</Nav.Link>
-            <Nav.Link href="#link">금융</Nav.Link>
-            <NavDropdown title="외환" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">해외송금</NavDropdown.Item>
+            <NavDropdown
+              title={t("header.foreign_exchange")}
+              id="basic-nav-dropdown"
+            >
+              <NavDropdown.Item href="#action/3.1">
+                {t("header.remittance")}
+              </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
-                해외송금 기록
+                {t("header.remittance_records")}
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">
-                진행중인 송금 현황
+                {t("header.remittance_current")}
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
+        <Nav className="ms-auto">
+          <Button variant="outline-secondary" onClick={handleLogout}>
+            {t("header.logout")}
+          </Button>
+        </Nav>
       </Container>
     </Navbar>
   );

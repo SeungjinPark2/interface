@@ -1,5 +1,4 @@
 {
-  "logo": "KR 은행",
   "login": {
     "login": "로그인",
     "id": "아이디",
@@ -16,5 +15,13 @@
     "password_hint": "비밀번호 입력",
     "password_confirm": "비밀번호 재 입력",
     "password_confirm_hint": "비밀번호 재 입력"
+  },
+  "header": {
+    "logo": "KR 은행",
+    "foreign_exchange": "외환",
+    "remittance": "해외송금",
+    "remittance_records": "해외송금 기록",
+    "remittance_current": "진행중인 해외송금 현황",
+    "logout": "로그아웃"
   }
 }
