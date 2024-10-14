@@ -19,23 +19,24 @@ function Header() {
           maxWidth: "960px",
         }}
       >
-        <Navbar.Brand href="#home" className="fw-bold">
+        <Navbar.Brand href="/home" className="fw-bold">
           {t("header.logo")}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
+            <Nav.Link href="/home/overview">{t("header.overview")}</Nav.Link>
             <NavDropdown
               title={t("header.foreign_exchange")}
               id="basic-nav-dropdown"
             >
-              <NavDropdown.Item href="#action/3.1">
+              <NavDropdown.Item href="/home/remittance/sender">
                 {t("header.remittance")}
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+              <NavDropdown.Item href="/home/remittance/history">
                 {t("header.remittance_records")}
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
+              <NavDropdown.Item href="/home/remittance/track">
                 {t("header.remittance_current")}
               </NavDropdown.Item>
             </NavDropdown>

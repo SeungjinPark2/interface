@@ -4,6 +4,10 @@ import LoginForm from "./pages/Login/LoginForm";
 import SignupForm from "./pages/Login/SignupForm";
 import Home from "./pages/Home";
 import { useLocalStorage } from "@uidotdev/usehooks";
+import Overview from "./pages/Home/Overview";
+import Sender from "./pages/Home/Remittance/Sender";
+import History from "./pages/Home/Remittance/History";
+import Track from "./pages/Home/Remittance/Track";
 
 function App() {
   const [token] = useLocalStorage("token", null);
@@ -12,17 +16,17 @@ function App() {
       path: "/home",
       element: isLoggedIn ? <Home /> : <Navigate to="/login" />,
       children: [
-        // { path: '/dashboard', element: <Dashboard /> },
-        // { path: '/account', element: <Account /> },
-        // { path: '/', element: <Navigate to="/app/dashboard" /> },
-        // {
-        //   path: 'member',
-        //   element: <Outlet />,
-        //   children: [
-        //     { path: '/', element: <MemberGrid /> },
-        //     { path: '/add', element: <AddMember /> },
-        //   ],
-        // },
+        { path: "overview", element: <Overview /> },
+        {
+          path: "remittance",
+          element: <Outlet />,
+          children: [
+            { path: "sender", element: <Sender /> },
+            { path: "history", element: <History /> },
+            { path: "track", element: <Track /> },
+          ],
+        },
+        { path: "", element: <Navigate to="overview" /> },
       ],
     },
     {
