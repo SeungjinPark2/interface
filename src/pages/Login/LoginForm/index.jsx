@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Form, Button, Container, Row, Col, Anchor } from "react-bootstrap";
-import { useAuthStore } from "../../../hooks/authStore";
 import { useTranslation } from "react-i18next";
+import { login } from "../api";
+import { useLocalStorage } from "@uidotdev/usehooks";
 
 const LoginForm = () => {
-  const { login } = useAuthStore();
+  // const { login } = useAuthStore();
+  const [, saveToken] = useLocalStorage("token", null);
+
   const [error, setError] = useState(null);
   const { t } = useTranslation();
 
@@ -26,7 +29,7 @@ const LoginForm = () => {
     setError(null); // 에러 상태 초기화
 
     try {
-      await login(formData.id, formData.password);
+      await login(formData.id, formData.password, saveToken);
     } catch (error) {
       setError(error.message);
     }

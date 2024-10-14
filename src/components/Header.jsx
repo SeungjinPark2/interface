@@ -1,11 +1,10 @@
 import { Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import { useAuthStore } from "../hooks/authStore";
 import { useNavigate } from "react-router-dom";
+import { logout } from "../pages/Login/api";
 
 function Header() {
   const { t } = useTranslation();
-  const { logout } = useAuthStore();
   const navigate = useNavigate();
 
   const handleLogout = () => {

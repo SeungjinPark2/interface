@@ -1,12 +1,12 @@
 import { Navigate, Outlet, useRoutes } from "react-router-dom";
 import "./App.css";
-import { useAuthStore } from "./hooks/authStore";
 import LoginForm from "./pages/Login/LoginForm";
 import SignupForm from "./pages/Login/SignupForm";
 import Home from "./pages/Home";
+import { useLocalStorage } from "@uidotdev/usehooks";
 
 function App() {
-  const { token } = useAuthStore();
+  const [token] = useLocalStorage("token", null);
   const routes = (isLoggedIn) => [
     {
       path: "/home",

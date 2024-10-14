@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
-import { useAuthStore } from "../../../hooks/authStore";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { signup } from "../api";
 
 const SignupForm = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { signup } = useAuthStore();
   const [formData, setFormData] = useState({
     id: "",
     password: "",
@@ -89,7 +88,7 @@ const SignupForm = () => {
             </Form.Group>
 
             <Button variant="primary" type="submit" className="mt-4 w-100">
-              Signup
+              {t("signup.signup")}
             </Button>
           </Form>
         </Col>
