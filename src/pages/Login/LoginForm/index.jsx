@@ -3,10 +3,11 @@ import { Form, Button, Container, Row, Col, Anchor } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { login } from "../api";
 import { useLocalStorage } from "@uidotdev/usehooks";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
-  // const { login } = useAuthStore();
   const [, saveToken] = useLocalStorage("token", null);
+  const navigate = useNavigate();
 
   const [error, setError] = useState(null);
   const { t } = useTranslation();
@@ -30,6 +31,7 @@ const LoginForm = () => {
 
     try {
       await login(formData.id, formData.password, saveToken);
+      navigate("/home");
     } catch (error) {
       setError(error.message);
     }

@@ -5,15 +5,15 @@ import { Outlet } from "react-router-dom";
 function Home() {
   return (
     <>
-      <Header></Header>
+      <Header />
       <Container
-        className="d-flex justify-content-center bg-dark-subtle rounded"
+        className="d-flex justify-content-center"
         style={{
           marginTop: "20px",
           maxWidth: "960px",
         }}
       >
-        <Stack>
+        <Stack gap={3} className="py-3">
           <Outlet />
         </Stack>
       </Container>
