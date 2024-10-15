@@ -3,14 +3,14 @@ import "./App.css";
 import LoginForm from "./pages/Login/LoginForm";
 import SignupForm from "./pages/Login/SignupForm";
 import Home from "./pages/Home";
-import { useLocalStorage } from "@uidotdev/usehooks";
 import Overview from "./pages/Home/Overview";
 import Sender from "./pages/Home/Remittance/Sender";
 import History from "./pages/Home/Remittance/History";
 import Track from "./pages/Home/Remittance/Track";
+import { useSessionStorage } from "@uidotdev/usehooks";
 
 function App() {
-  const [token] = useLocalStorage("token", null);
+  const [token] = useSessionStorage("token", null);
   const routes = (isLoggedIn) => [
     {
       path: "/home",

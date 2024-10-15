@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const axioser = () => {
   const client = axios.create();
-  const token = window.localStorage.getItem("token");
+  const token = window.sessionStorage.getItem("token");
 
   client.interceptors.request.use(
     (config) => {

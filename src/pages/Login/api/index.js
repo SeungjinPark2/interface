@@ -1,6 +1,6 @@
 import axios, { HttpStatusCode } from "axios";
 
-export const login = async (id, password, saveToken /* useLocalStorage */) => {
+export const login = async (id, password, saveToken /* sessionStorage */) => {
   // 로그인 API 호출
   const { status, data } = await axios.post(
     "/api/login",
@@ -36,5 +36,5 @@ export const signup = async (id, password) => {
 };
 
 export const logout = () => {
-  window.localStorage.removeItem("token");
+  window.sessionStorage.removeItem("token");
 };

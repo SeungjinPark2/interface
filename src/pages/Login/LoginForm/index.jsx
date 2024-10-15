@@ -2,11 +2,11 @@ import { useState } from "react";
 import { Form, Button, Container, Row, Col, Anchor } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { login } from "../api";
-import { useLocalStorage } from "@uidotdev/usehooks";
 import { useNavigate } from "react-router-dom";
+import { useSessionStorage } from "@uidotdev/usehooks";
 
 const LoginForm = () => {
-  const [, saveToken] = useLocalStorage("token", null);
+  const [, saveToken] = useSessionStorage("token", null);
   const navigate = useNavigate();
 
   const [error, setError] = useState(null);
