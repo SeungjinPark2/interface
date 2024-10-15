@@ -19,10 +19,10 @@ export const login = async (id, password, saveToken /* sessionStorage */) => {
   }
 };
 
-export const signup = async (id, password) => {
+export const signup = async (id, password, firstName, lastName) => {
   const response = await axios.post(
     "/api/signup",
-    { username: id, password },
+    { username: id, password, firstName, lastName },
     {
       headers: {
         "Content-Type": "application/json",

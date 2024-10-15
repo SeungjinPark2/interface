@@ -2,10 +2,17 @@ import { Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../pages/Login/api";
+import { useUserStore } from "../hooks/userStore";
+import { useEffect } from "react";
 
 function Header() {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { userInfo, getUserInfo } = useUserStore();
+
+  useEffect(() => {
+    getUserInfo();
+  }, []);
 
   const handleLogout = () => {
     logout();
@@ -43,6 +50,9 @@ function Header() {
           </Nav>
         </Navbar.Collapse>
         <Nav className="ms-auto">
+          <Navbar.Text className="me-2">
+            {userInfo?.firstName ?? ""} {userInfo?.lastName ?? ""}
+          </Navbar.Text>
           <Button variant="outline-secondary" onClick={handleLogout}>
             {t("header.logout")}
           </Button>

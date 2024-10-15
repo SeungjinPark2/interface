@@ -14,7 +14,11 @@
     "password": "비밀번호",
     "password_hint": "비밀번호 입력",
     "password_confirm": "비밀번호 재 입력",
-    "password_confirm_hint": "비밀번호 재 입력"
+    "password_confirm_hint": "비밀번호 재 입력",
+    "firstName": "성",
+    "firstNameHint": "HONG",
+    "lastName": "이름",
+    "lastNameHint": "GILDONG"
   },
   "header": {
     "logo": "KR 은행",

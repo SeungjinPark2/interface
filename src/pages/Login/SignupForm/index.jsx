@@ -9,6 +9,8 @@ const SignupForm = () => {
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
     id: "",
+    firstName: "",
+    lastName: "",
     password: "",
     confirmPassword: "",
   });
@@ -34,7 +36,12 @@ const SignupForm = () => {
     }
 
     try {
-      await signup(formData.id, formData.password);
+      await signup(
+        formData.id,
+        formData.password,
+        formData.firstName,
+        formData.lastName
+      );
       setSuccess("Signup successful!");
       window.alert("Signup succeeded");
       navigate("/login");
@@ -51,7 +58,7 @@ const SignupForm = () => {
           {error && <div className="alert alert-danger">{error}</div>}
           {success && <div className="alert alert-success">{success}</div>}
           <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formBasicId">
+            <Form.Group controlId="formBasicId" className="mt-2">
               <Form.Label>{t("signup.id")}</Form.Label>
               <Form.Control
                 type="text"
@@ -63,7 +70,31 @@ const SignupForm = () => {
               />
             </Form.Group>
 
-            <Form.Group controlId="formBasicPassword" className="mt-3">
+            <Form.Group controlId="formFirstName" className="mt-2">
+              <Form.Label>{t("signup.firstName")}</Form.Label>
+              <Form.Control
+                type="text"
+                name="firstName"
+                placeholder={t("signup.firstNameHint")}
+                value={formData.firstName}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+
+            <Form.Group controlId="formLastName" className="mt-2">
+              <Form.Label>{t("signup.lastName")}</Form.Label>
+              <Form.Control
+                type="text"
+                name="lastName"
+                placeholder={t("signup.lastNameHint")}
+                value={formData.lastName}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+
+            <Form.Group controlId="formBasicPassword" className="mt-2">
               <Form.Label>{t("signup.password")}</Form.Label>
               <Form.Control
                 type="password"
@@ -75,7 +106,7 @@ const SignupForm = () => {
               />
             </Form.Group>
 
-            <Form.Group controlId="formBasicPasswordConfirm" className="mt-3">
+            <Form.Group controlId="formBasicPasswordConfirm" className="mt-2">
               <Form.Label>{t("signup.password_confirm")}</Form.Label>
               <Form.Control
                 type="password"
