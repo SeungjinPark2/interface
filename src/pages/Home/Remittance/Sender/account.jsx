@@ -21,7 +21,7 @@ function Account({ accountInfo }) {
         </div>
 
         <span className="mx-auto my-auto fs-1">
-          {accountInfo != null ? amountEncoder(accountInfo.balance) : "0"}
+          {accountInfo != null ? amountEncoder(accountInfo.balance + "") : "0"}
           {t("ticker")}
         </span>
       </div>

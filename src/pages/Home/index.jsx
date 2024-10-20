@@ -13,7 +13,7 @@ function Home() {
           maxWidth: "960px",
         }}
       >
-        <Stack gap={3} className="py-3">
+        <Stack gap={3}>
           <Outlet />
         </Stack>
       </Container>

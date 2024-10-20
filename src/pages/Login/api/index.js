@@ -3,7 +3,7 @@ import axios, { HttpStatusCode } from "axios";
 export const login = async (id, password, saveToken /* sessionStorage */) => {
   // 로그인 API 호출
   const { status, data } = await axios.post(
-    "/api/login",
+    "/api/auth/login",
     { username: id, password },
     {
       headers: {
@@ -21,7 +21,7 @@ export const login = async (id, password, saveToken /* sessionStorage */) => {
 
 export const signup = async (id, password, firstName, lastName) => {
   const response = await axios.post(
-    "/api/signup",
+    "/api/auth/signup",
     { username: id, password, firstName, lastName },
     {
       headers: {
