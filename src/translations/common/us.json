@@ -1,0 +1,33 @@
+{
+  "login": {
+    "login": "Login",
+    "id": "ID",
+    "id_hint": "Enter ID",
+    "password": "Password",
+    "password_hint": "Enter Password",
+    "signup_link": "Sign Up"
+  },
+  "signup": {
+    "signup": "Sign Up",
+    "id": "ID",
+    "id_hint": "Enter ID",
+    "password": "Password",
+    "password_hint": "Enter Password",
+    "password_confirm": "Confirm Password",
+    "password_confirm_hint": "Re-enter Password",
+    "firstName": "First Name",
+    "firstNameHint": "HONG",
+    "lastName": "Last Name",
+    "lastNameHint": "GILDONG"
+  },
+  "header": {
+    "logo": "KR Bank",
+    "foreign_exchange": "Foreign Exchange",
+    "overview": "Overview",
+    "admin-setting": "Admin",
+    "remittance": "International Remittance",
+    "remittance_records": "Remittance Records",
+    "remittance_current": "Current Remittance Status",
+    "logout": "Logout"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "associate": "Register Correspondent Bank",
+  "bankCode": "Bank Code",
+  "associateInfo": "Enter the code of the correspondent bank",
+  "associatePlaceHolder": "BANKCODE",
+  "associateButton": "Register",
+  "associateSuccess": "Correspondent Bank Registration Successful",
+  "associateFailure": "Correspondent Bank Registration Failed",
+  "correspondentList": "List of Correspondent Banks"
+}

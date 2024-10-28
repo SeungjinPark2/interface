@@ -1,0 +1,33 @@
+{
+  "login": {
+    "login": "iniciar sesión",
+    "id": "ID",
+    "id_hint": "ingrese su ID",
+    "password": "contraseña",
+    "password_hint": "ingrese su contraseña",
+    "signup_link": "registrarse"
+  },
+  "signup": {
+    "signup": "registrarse",
+    "id": "ID",
+    "id_hint": "ingrese su ID",
+    "password": "contraseña",
+    "password_hint": "ingrese su contraseña",
+    "password_confirm": "confirmar contraseña",
+    "password_confirm_hint": "ingrese nuevamente su contraseña",
+    "firstName": "apellido",
+    "firstNameHint": "HONG",
+    "lastName": "nombre",
+    "lastNameHint": "GILDONG"
+  },
+  "header": {
+    "logo": "MX Banco",
+    "foreign_exchange": "divisas",
+    "overview": "resumen",
+    "admin-setting": "administración",
+    "remittance": "transferencia internacional",
+    "remittance_records": "historial de transferencias internacionales",
+    "remittance_current": "estado actual de transferencias internacionales",
+    "logout": "cerrar sesión"
+  }
+}

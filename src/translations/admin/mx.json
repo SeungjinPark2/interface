@@ -1,0 +1,10 @@
+{
+  "associate": "registro de banco corresponsal",
+  "bankCode": "código del banco",
+  "associateInfo": "ingrese el código del banco corresponsal",
+  "associatePlaceHolder": "BANKCODE",
+  "associateButton": "registrar",
+  "associateSuccess": "registro de banco corresponsal exitoso",
+  "associateFailure": "fallo en el registro del banco corresponsal",
+  "correspondentList": "lista de bancos corresponsales"
+}
