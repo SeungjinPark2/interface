@@ -3,12 +3,24 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../pages/Login/api";
 import { useUserStore } from "../hooks/userStore";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 
 function Header() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { userInfo, getUserInfo } = useUserStore();
+
+  const renderAdmin = useMemo(
+    () =>
+      userInfo?.role === "ADMIN" ? (
+        <Nav.Link href="/home/admin-setting">
+          {t("header.admin-setting")}
+        </Nav.Link>
+      ) : (
+        ""
+      ),
+    [userInfo]
+  );
 
   useEffect(() => {
     getUserInfo();
@@ -47,6 +59,7 @@ function Header() {
                 {t("header.remittance_current")}
               </NavDropdown.Item>
             </NavDropdown>
+            {renderAdmin}
           </Nav>
         </Navbar.Collapse>
         <Nav className="ms-auto">

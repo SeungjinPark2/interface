@@ -1,7 +1,7 @@
-import MyContainer from "../../../../components/MyContainer";
+import SecondContainer from "../../../../components/SecondContainer";
 
 function SendForm() {
-  return <MyContainer>Form will be here</MyContainer>;
+  return <SecondContainer>Form will be here</SecondContainer>;
 }
 
 export default SendForm;

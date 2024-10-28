@@ -1,0 +1,10 @@
+{
+  "associate": "환거래 은행 등록",
+  "bankCode": "은행 코드",
+  "associateInfo": "환거래 대상 은행의 코드 입력",
+  "associatePlaceHolder": "BANKCODE",
+  "associateButton": "등록",
+  "associateSuccess": "환거래 은행 등록 성공",
+  "associateFailure": "환거래 은행 등록 실패",
+  "correspondentList": "환거래 은행 목록"
+}
