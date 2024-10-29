@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Form, Button, Container, Row, Col, Anchor } from "react-bootstrap";
+import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { login } from "../api";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSessionStorage } from "@uidotdev/usehooks";
 
 const LoginForm = () => {
@@ -67,7 +67,7 @@ const LoginForm = () => {
                 required
               />
             </Form.Group>
-            <Anchor href="/signup">{t("login.signup_link")}</Anchor>
+            <Link to="/signup">{t("login.signup_link")}</Link>
             <Button variant="primary" type="submit" className="mt-4 w-100">
               {t("login.login")}
             </Button>

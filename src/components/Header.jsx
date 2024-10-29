@@ -1,6 +1,6 @@
 import { Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../pages/Login/api";
 import { useUserStore } from "../hooks/userStore";
 import { useEffect, useMemo } from "react";
@@ -13,8 +13,8 @@ function Header() {
   const renderAdmin = useMemo(
     () =>
       userInfo?.role === "ADMIN" ? (
-        <Nav.Link href="/home/admin-setting">
-          {t("header.admin-setting")}
+        <Nav.Link>
+          <Link to="/home/admin-setting">{t("header.admin-setting")}</Link>
         </Nav.Link>
       ) : (
         ""
@@ -38,25 +38,33 @@ function Header() {
           maxWidth: "960px",
         }}
       >
-        <Navbar.Brand href="/home" className="fw-bold">
-          {t("header.logo")}
+        <Navbar.Brand className="fw-bold">
+          <Link to="/home">{t("header.logo")}</Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/home/overview">{t("header.overview")}</Nav.Link>
+            <Nav.Link>
+              <Link to="/home/overview">{t("header.overview")}</Link>
+            </Nav.Link>
             <NavDropdown
               title={t("header.foreign_exchange")}
               id="basic-nav-dropdown"
             >
-              <NavDropdown.Item href="/home/remittance/sender">
-                {t("header.remittance")}
+              <NavDropdown.Item>
+                <Link to="/home/remittance/sender">
+                  {t("header.remittance")}
+                </Link>
               </NavDropdown.Item>
-              <NavDropdown.Item href="/home/remittance/history">
-                {t("header.remittance_records")}
+              <NavDropdown.Item>
+                <Link to="/home/remittance/history">
+                  {t("header.remittance_records")}
+                </Link>
               </NavDropdown.Item>
-              <NavDropdown.Item href="/home/remittance/track">
-                {t("header.remittance_current")}
+              <NavDropdown.Item>
+                <Link to="/home/remittance/track">
+                  {t("header.remittance_current")}
+                </Link>
               </NavDropdown.Item>
             </NavDropdown>
             {renderAdmin}

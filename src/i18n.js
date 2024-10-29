@@ -30,7 +30,7 @@ const resources = {
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: "ko",
+  lng: import.meta.env.VITE_LANG,
   defaultNS: "common",
   interpolation: {
     escapeValue: false,
