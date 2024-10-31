@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Button, Form, Spinner } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import { associateBank } from "./api";
-import SecondContainer from "../../../components/SecondContainer";
+import SecondContainer from "../../../../components/SecondContainer";
+import { associateBank } from "../../Remittance/api";
 
 const AssociateBox = () => {
   const { t } = useTranslation("admin");
@@ -13,7 +13,6 @@ const AssociateBox = () => {
   });
 
   const handleChange = (e) => {
-    console.log(formData);
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -23,20 +22,15 @@ const AssociateBox = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    associateBank(formData.code)
-      .catch(() => {
-        window.alert(t("associateFailure"));
-        return;
-      })
-      .then(() => {
-        window.alert(t("associateSuccess"));
-        setLoading(false);
-      });
+    associateBank(formData.code).then(() => {
+      window.alert(t("associateSuccess"));
+      setLoading(false);
+    });
   };
   return (
     <SecondContainer>
       <Form>
-        <Form.Group className="mb-3 p-2" controlId="formBasicBankCode">
+        <Form.Group className="p-2" controlId="formBasicBankCode">
           <Form.Label>{t("associate")}</Form.Label>
           <div className="d-flex">
             <Form.Control

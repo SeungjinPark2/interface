@@ -1,5 +1,7 @@
 {
   "balance": "잔고",
   "accountNumber": "계좌번호",
-  "ticker": "₩"
+  "ticker": "₩",
+  "sendTitle": "해외송금 시작하기",
+  "dialog": {}
 }

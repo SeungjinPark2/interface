@@ -1,12 +1,12 @@
-import { useEffect, useMemo, useState } from "react";
-import SecondContainer from "../../../components/SecondContainer";
-import { getBankInfo } from "./api";
+import { useEffect, useMemo } from "react";
+import SecondContainer from "../../../../components/SecondContainer";
 import { useTranslation } from "react-i18next";
 import { ListGroup, Stack } from "react-bootstrap";
+import { useBankStore } from "../../../../hooks/bankStore";
 
 const BankInfoBox = () => {
-  const [bankInfo, setBankInfo] = useState();
   const { t } = useTranslation("admin");
+  const { bankInfo, getBankInfo } = useBankStore();
 
   const listRender = useMemo(
     () =>
@@ -21,9 +21,7 @@ const BankInfoBox = () => {
   );
 
   useEffect(() => {
-    getBankInfo().then((data) => {
-      setBankInfo(data);
-    });
+    getBankInfo();
   }, []);
 
   return (

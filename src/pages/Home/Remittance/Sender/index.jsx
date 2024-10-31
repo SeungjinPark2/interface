@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useAccountStore } from "../../../../hooks/accountStore";
-import Account from "./account";
-import SendForm from "./sendForm";
+import Account from "./Account";
+import SendForm from "./SendForm";
 
 function Sender() {
   const { accountInfo, getAccountInfo } = useAccountStore();
