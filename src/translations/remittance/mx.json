@@ -1,5 +1,29 @@
 {
   "balance": "saldo",
   "accountNumber": "número de cuenta",
-  "ticker": "$"
+  "ticker": "$",
+  "sendForm": {
+    "sendTitle": "Iniciar envío al extranjero",
+    "receiverCode": "Código del banco receptor",
+    "receiverCodePH": "Ingrese el código del banco receptor",
+    "receiverName": "Nombre del receptor",
+    "receiverFirstnamePH": "Ingrese el nombre",
+    "receiverlastNamePH": "Ingrese el apellido",
+    "receiverAcountNubmer": "Número de cuenta del receptor",
+    "receiverAccountNumberPH": "Ingrese el número de cuenta del receptor",
+    "amount": "Cantidad a enviar",
+    "amountPH": "Ingrese la cantidad",
+    "submit": "Enviar"
+  },
+  "dialog": {
+    "q1": "Finalmente,",
+    "q2": "la cantidad que recibirá será",
+    "q3": "es.",
+    "alert": "Solicitud de envío exitosa",
+    "modal": {
+      "title": "Revisar envío",
+      "cancel": "Cancelar",
+      "submit": "Enviar"
+    }
+  }
 }

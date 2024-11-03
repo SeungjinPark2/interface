@@ -1,0 +1,17 @@
+{
+  "qs0": "En progreso",
+  "qs1": "Aprobado",
+  "qs2": "Rechazado",
+  "alert": "Transacción aprobada con éxito",
+  "approve": "Aprobar",
+  "reject": "Rechazar",
+  "fee": "Tarifa",
+  "amount": "Cantidad a transferir",
+  "dialog": {
+    "alert": "Transacción rechazada con éxito",
+    "title": "Rechazar",
+    "reason": "Motivo de rechazo",
+    "reasonPH": "Ingrese el motivo del rechazo",
+    "submit": "Enviar"
+  }
+}

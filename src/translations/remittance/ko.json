@@ -2,6 +2,28 @@
   "balance": "잔고",
   "accountNumber": "계좌번호",
   "ticker": "₩",
-  "sendTitle": "해외송금 시작하기",
-  "dialog": {}
+  "sendForm": {
+    "sendTitle": "해외송금 시작하기",
+    "receiverCode": "수취은행 코드",
+    "receiverCodePH": "수취은행 코드 입력",
+    "receiverName": "수취인 성명",
+    "receiverFirstnamePH": "성 입력",
+    "receiverlastNamePH": "이름 입력",
+    "receiverAcountNubmer": "수취인 계좌번호",
+    "receiverAccountNumberPH": "수취인 계좌번호 입력",
+    "amount": "송금액",
+    "amountPH": "송금액 입력",
+    "submit": "제출"
+  },
+  "dialog": {
+    "q1": "최종적으로",
+    "q2": "님이 받는 금액은",
+    "q3": "입니다.",
+    "alert": "송금 요청 성공",
+    "modal": {
+      "title": "송금 검토",
+      "cancel": "취소",
+      "submit": "제출"
+    }
+  }
 }

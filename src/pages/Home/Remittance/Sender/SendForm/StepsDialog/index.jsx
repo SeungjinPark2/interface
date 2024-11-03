@@ -2,9 +2,11 @@ import { useMemo, useState } from "react";
 import { Button, ListGroup, Modal, Spinner } from "react-bootstrap";
 import { submitTx } from "../../../api";
 import TransactionSteps from "../../../../../../components/TransactionSteps";
+import { useTranslation } from "react-i18next";
 
 const TxDialog = ({ handleClose, show, preflightedTx }) => {
   const [loading, setLoading] = useState(false);
+  const { t } = useTranslation("remittance");
 
   const receiverQuote = useMemo(() => {
     let rendering = "";
@@ -14,11 +16,11 @@ const TxDialog = ({ handleClose, show, preflightedTx }) => {
       preflightedTx.agreements.push(lastOne);
       rendering = (
         <div>
-          최종적으로 <b>{receiverFullName}</b> 님이 받을 금액은
+          {t("dialog.q1")} <b>{receiverFullName}</b> {t("dialog.q2")}
           <b>
             {lastOne.amount} {lastOne.currencyCode}
           </b>{" "}
-          입니다.
+          {t("dialog.q3")}
         </div>
       );
     }
@@ -37,7 +39,7 @@ const TxDialog = ({ handleClose, show, preflightedTx }) => {
     if (preflightedTx != null) {
       submitTx(preflightedTx).finally(() => {
         setLoading(false);
-        window.alert("트렌젝션 제안에 성공했습니다.");
+        window.alert(t("dialog.alert"));
       });
     }
   };
@@ -45,7 +47,7 @@ const TxDialog = ({ handleClose, show, preflightedTx }) => {
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>송금 검토</Modal.Title>
+        <Modal.Title>{t("dialog.modal.title")}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <ListGroup>{remittanceSteps}</ListGroup>
@@ -53,10 +55,14 @@ const TxDialog = ({ handleClose, show, preflightedTx }) => {
       </Modal.Body>
       <Modal.Footer>
         <Button variant="outline-secondary" onClick={handleClose}>
-          취소
+          {t("dialog.modal.cancel")}
         </Button>
         <Button variant="outline-info" onClick={handleClick}>
-          {loading ? <Spinner animation="border" variant="info" /> : "제출"}
+          {loading ? (
+            <Spinner animation="border" variant="info" />
+          ) : (
+            t("dialog.modal.submit")
+          )}
         </Button>
       </Modal.Footer>
     </Modal>

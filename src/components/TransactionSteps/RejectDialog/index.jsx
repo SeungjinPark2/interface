@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Button, Form, Modal, Spinner } from "react-bootstrap";
 import { approveTx } from "../../../pages/Home/Remittance/api";
+import { useTranslation } from "react-i18next";
 
 const RejectDialog = ({ handleClose, show, id }) => {
+  const { t } = useTranslation("step");
   const [loading, setLoading] = useState(false);
   const [reason, setReason] = useState("");
 
@@ -14,7 +16,7 @@ const RejectDialog = ({ handleClose, show, id }) => {
     setLoading(true);
     approveTx(id, "approve")
       .then(() => {
-        window.alert("트렌젝션 승인에 성공했습니다.");
+        window.alert(t("alert"));
         setLoading(false);
       })
       .finally(() => setLoading(false));
@@ -23,16 +25,16 @@ const RejectDialog = ({ handleClose, show, id }) => {
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>반려 하기</Modal.Title>
+        <Modal.Title>{t("dialog.alert")}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form>
           <Form.Group>
-            <Form.Label>반려 사유</Form.Label>
+            <Form.Label>{t("dialog.reason")}</Form.Label>
             <Form.Control
               type="text"
               name="id"
-              placeholder="반려 사유를 기입해주세요"
+              placeholder={t("dialog.reasonPH")}
               value={reason}
               onChange={handleChange}
               required
@@ -42,7 +44,11 @@ const RejectDialog = ({ handleClose, show, id }) => {
       </Modal.Body>
       <Modal.Footer>
         <Button variant="outline-info" onClick={handleClick}>
-          {loading ? <Spinner animation="border" variant="info" /> : "제출"}
+          {loading ? (
+            <Spinner animation="border" variant="info" />
+          ) : (
+            t("dialog.submit")
+          )}
         </Button>
       </Modal.Footer>
     </Modal>

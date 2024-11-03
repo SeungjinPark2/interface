@@ -3,11 +3,13 @@ import { Button, Image, ListGroup, Spinner } from "react-bootstrap";
 import { useBankStore } from "../../hooks/bankStore";
 import RejectDialog from "./RejectDialog";
 import { approveTx } from "../../pages/Home/Remittance/api";
+import { useTranslation } from "react-i18next";
 
 const TransactionSteps = ({ transaction, addApproval }) => {
+  const { t } = useTranslation("step");
   const { bankInfo } = useBankStore();
   const variants = ["warning", "info", "danger"];
-  const quotesForStatus = ["진행중", "승인완료", "거절됨"];
+  const quotesForStatus = [t("qs0"), t("qs1"), t("qs2")];
   const [loading, setLoading] = useState(false);
 
   const [show, setShow] = useState(false);
@@ -23,10 +25,9 @@ const TransactionSteps = ({ transaction, addApproval }) => {
     if (choice === "reject") handleShow();
     else {
       setLoading(true);
-      console.log(id, choice);
       approveTx(id, "approve")
         .then(() => {
-          window.alert("트렌젝션 승인에 성공했습니다.");
+          window.alert(t("alert"));
           setLoading(false);
         })
         .finally(() => setLoading(false));
@@ -49,7 +50,11 @@ const TransactionSteps = ({ transaction, addApproval }) => {
               }}
               onClick={() => handleClick(transaction.id, "approve")}
             >
-              {loading ? <Spinner animation="border" variant="info" /> : "승인"}
+              {loading ? (
+                <Spinner animation="border" variant="info" />
+              ) : (
+                t("approve")
+              )}
             </Button>
           );
           rejectBtn = (
@@ -61,7 +66,7 @@ const TransactionSteps = ({ transaction, addApproval }) => {
               {loading ? (
                 <Spinner animation="border" variant="danger" />
               ) : (
-                "반려"
+                t("reject")
               )}
             </Button>
           );
@@ -108,10 +113,10 @@ const TransactionSteps = ({ transaction, addApproval }) => {
                 {agreement.code}
               </ListGroup.Item>
               <ListGroup.Item>
-                수수료: {agreement.collectedFee} {agreement.currencyCode}
+                {t("fee")}: {agreement.collectedFee} {agreement.currencyCode}
               </ListGroup.Item>
               <ListGroup.Item>
-                전송될 금액: {agreement.amount} {agreement.currencyCode}
+                {t("amount")}: {agreement.amount} {agreement.currencyCode}
               </ListGroup.Item>
               {renderApprovalButton(agreement)}
             </ListGroup>

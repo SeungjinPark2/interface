@@ -1,0 +1,17 @@
+{
+  "qs0": "In Progress",
+  "qs1": "Approved",
+  "qs2": "Rejected",
+  "alert": "Transaction approved successfully",
+  "approve": "Approve",
+  "reject": "Reject",
+  "fee": "Fee",
+  "amount": "Amount to be Transferred",
+  "dialog": {
+    "alert": "Transaction rejected successfully",
+    "title": "Reject",
+    "reason": "Reason for Rejection",
+    "reasonPH": "Please enter the reason for rejection",
+    "submit": "Submit"
+  }
+}

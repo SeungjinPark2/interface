@@ -1,5 +1,29 @@
 {
   "balance": "balance",
   "accountNumber": "account number",
-  "ticker": "$"
+  "ticker": "$",
+  "sendForm": {
+    "sendTitle": "Start Overseas Remittance",
+    "receiverCode": "Recipient Bank Code",
+    "receiverCodePH": "Enter Recipient Bank Code",
+    "receiverName": "Recipient Name",
+    "receiverFirstnamePH": "Enter First Name",
+    "receiverlastNamePH": "Enter Last Name",
+    "receiverAcountNubmer": "Recipient Account Number",
+    "receiverAccountNumberPH": "Enter Recipient Account Number",
+    "amount": "Amount to Send",
+    "amountPH": "Enter Amount",
+    "submit": "Submit"
+  },
+  "dialog": {
+    "q1": "Finally,",
+    "q2": "the amount received will be",
+    "q3": "is.",
+    "alert": "Remittance Request Successful",
+    "modal": {
+      "title": "Review Remittance",
+      "cancel": "Cancel",
+      "submit": "Submit"
+    }
+  }
 }
