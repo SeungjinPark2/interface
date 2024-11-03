@@ -43,7 +43,7 @@ export const associateBank = async (code) => {
   }
 };
 
-export const getTxs = async (currentBankCode, txStatus) => {
+export const getTxs = async (txStatus) => {
   const { data, status } = await axioser().get(
     `/api/transaction/status/${txStatus}`
   );
@@ -54,15 +54,21 @@ export const getTxs = async (currentBankCode, txStatus) => {
     throw new Error("Fetching Bank Info Failed");
   }
 
-  // api 가 넘겨주는 txs 는 전체 tx 상태가 ONGOING 인 것들을 제공해줌.
-  // 따라서 본 은행에서만 필요로 하는 것을 파싱할 필요가 있다.
-  const txs = data.filter((tx) => {
-    const agreement = tx.agreements.find(
-      (agre) => agre.code === currentBankCode
-    );
+  return data;
+};
 
-    return parseInt(agreement.status) === 0;
+export const approveTx = async (id, choice, reason = "") => {
+  const { data, status } = await axioser().post("/api/transaction/approve", {
+    id,
+    choice,
+    reason,
   });
 
-  return txs;
+  if (
+    !(status === HttpStatusCode.Ok || status === HttpStatusCode.NotModified)
+  ) {
+    throw new Error("Approvement failed");
+  }
+
+  return data;
 };

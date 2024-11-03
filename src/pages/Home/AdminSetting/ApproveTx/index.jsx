@@ -13,11 +13,12 @@ const ApproveTx = () => {
     if (bankInfo == null) {
       getBankInfo();
     } else {
-      getTxs(bankInfo.code, 0).then((uTxs) => {
+      getTxs(0).then((uTxs) => {
         setUnapprovedTxs(uTxs);
       });
     }
   }, [bankInfo]);
+
   return (
     <SecondContainer>
       <Stack className="p-2" gap={2}>
