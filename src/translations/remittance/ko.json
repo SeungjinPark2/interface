@@ -25,5 +25,9 @@
       "cancel": "취소",
       "submit": "제출"
     }
+  },
+  "track": {
+    "currentStatus": "진행중인 송금 현황",
+    "transactionList": "트렌젝션 리스트"
   }
 }

@@ -3,6 +3,7 @@ import { Button, ListGroup, Modal, Spinner } from "react-bootstrap";
 import { submitTx } from "../../../api";
 import TransactionSteps from "../../../../../../components/TransactionSteps";
 import { useTranslation } from "react-i18next";
+import SenderAndReceiver from "../../../../../../components/SenderAndReceiverInfo";
 
 const TxDialog = ({ handleClose, show, preflightedTx }) => {
   const [loading, setLoading] = useState(false);
@@ -15,7 +16,11 @@ const TxDialog = ({ handleClose, show, preflightedTx }) => {
       const lastOne = preflightedTx.agreements.pop();
       preflightedTx.agreements.push(lastOne);
       rendering = (
-        <div>
+        <div
+          style={{
+            marginTop: "8px",
+          }}
+        >
           {t("dialog.q1")} <b>{receiverFullName}</b> {t("dialog.q2")}
           <b>
             {lastOne.amount} {lastOne.currencyCode}
@@ -50,7 +55,8 @@ const TxDialog = ({ handleClose, show, preflightedTx }) => {
         <Modal.Title>{t("dialog.modal.title")}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <ListGroup>{remittanceSteps}</ListGroup>
+        <SenderAndReceiver transaction={preflightedTx} />
+        <ListGroup style={{ marginTop: "8px" }}>{remittanceSteps}</ListGroup>
         {receiverQuote}
       </Modal.Body>
       <Modal.Footer>

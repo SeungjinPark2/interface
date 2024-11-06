@@ -57,6 +57,18 @@ export const getTxs = async (txStatus) => {
   return data;
 };
 
+export const getUserTxs = async () => {
+  const { data, status } = await axioser().get(`/api/transaction`);
+
+  if (
+    !(status === HttpStatusCode.Ok || status === HttpStatusCode.NotModified)
+  ) {
+    throw new Error("Fetching Bank Info Failed");
+  }
+
+  return data;
+};
+
 export const approveTx = async (id, choice, reason = "") => {
   const { data, status } = await axioser().post("/api/transaction/approve", {
     id,

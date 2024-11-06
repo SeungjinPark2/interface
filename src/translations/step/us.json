@@ -13,5 +13,11 @@
     "reason": "Reason for Rejection",
     "reasonPH": "Please enter the reason for rejection",
     "submit": "Submit"
+  },
+  "user": {
+    "senderInfo": "Sender Information",
+    "receiverInfo": "Receiver Information",
+    "name": "Name",
+    "accountNumber": "Account Number"
   }
 }

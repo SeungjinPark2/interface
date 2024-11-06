@@ -6,5 +6,6 @@
   "associateButton": "Register",
   "associateSuccess": "Correspondent Bank Registration Successful",
   "associateFailure": "Correspondent Bank Registration Failed",
-  "correspondentList": "List of Correspondent Banks"
+  "correspondentList": "List of Correspondent Banks",
+  "waitingToBeApprovedTxs": "Pending transactions"
 }

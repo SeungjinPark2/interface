@@ -25,5 +25,9 @@
       "cancel": "Cancel",
       "submit": "Submit"
     }
+  },
+  "track": {
+    "currentStatus": "Current Remittance Status",
+    "transactionList": "Transaction List"
   }
 }

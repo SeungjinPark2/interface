@@ -6,5 +6,6 @@
   "associateButton": "registrar",
   "associateSuccess": "registro de banco corresponsal exitoso",
   "associateFailure": "fallo en el registro del banco corresponsal",
-  "correspondentList": "lista de bancos corresponsales"
+  "correspondentList": "lista de bancos corresponsales",
+  "waitingToBeApprovedTxs": "operaciones pendientes"
 }

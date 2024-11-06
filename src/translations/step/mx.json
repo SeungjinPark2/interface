@@ -13,5 +13,11 @@
     "reason": "Motivo de rechazo",
     "reasonPH": "Ingrese el motivo del rechazo",
     "submit": "Enviar"
+  },
+  "user": {
+    "senderInfo": "Información del remitente",
+    "receiverInfo": "Información del receptor",
+    "name": "Nombre",
+    "accountNumber": "Número de cuenta"
   }
 }

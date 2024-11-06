@@ -4,10 +4,12 @@ import TxList from "./TxList";
 import { useEffect, useState } from "react";
 import { getTxs } from "../../Remittance/api";
 import { useBankStore } from "../../../../hooks/bankStore";
+import { useTranslation } from "react-i18next";
 
 const ApproveTx = () => {
   const [unapprovedTxs, setUnapprovedTxs] = useState();
   const { bankInfo, getBankInfo } = useBankStore();
+  const { t } = useTranslation("admin");
 
   useEffect(() => {
     if (bankInfo == null) {
@@ -22,11 +24,13 @@ const ApproveTx = () => {
   return (
     <SecondContainer>
       <Stack className="p-2" gap={2}>
-        <span className="fs-4">승인 대기중인 트렌젝션</span>
+        <span className="fs-4">{t("waitingToBeApprovedTxs")}</span>
         <TxList
-          unapprovedTxs={unapprovedTxs}
+          transactions={unapprovedTxs}
           bankCode={bankInfo?.code}
-        ></TxList>
+          addApproval={true}
+          addStatus={true}
+        />
       </Stack>
     </SecondContainer>
   );

@@ -25,5 +25,9 @@
       "cancel": "Cancelar",
       "submit": "Enviar"
     }
+  },
+  "track": {
+    "currentStatus": "Estado actual de la remesa",
+    "transactionList": "Lista de transacciones"
   }
 }

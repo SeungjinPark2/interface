@@ -5,7 +5,7 @@ import RejectDialog from "./RejectDialog";
 import { approveTx } from "../../pages/Home/Remittance/api";
 import { useTranslation } from "react-i18next";
 
-const TransactionSteps = ({ transaction, addApproval }) => {
+const TransactionSteps = ({ transaction, addStatus, addApproval }) => {
   const { t } = useTranslation("step");
   const { bankInfo } = useBankStore();
   const variants = ["warning", "info", "danger"];
@@ -34,12 +34,13 @@ const TransactionSteps = ({ transaction, addApproval }) => {
     }
   };
 
-  const renderApprovalButton = useCallback(
+  const renderApproval = useCallback(
     (agreement) => {
-      if (!addApproval) return <></>;
-      else {
-        let approveBtn = <></>;
-        let rejectBtn = <></>;
+      let approveBtn = <></>;
+      let rejectBtn = <></>;
+      let statusUi = <></>;
+
+      if (addApproval) {
         if (bankInfo.code === agreement.code) {
           approveBtn = (
             <Button
@@ -72,8 +73,8 @@ const TransactionSteps = ({ transaction, addApproval }) => {
           );
         }
 
-        return (
-          <>
+        if (addStatus) {
+          statusUi = (
             <ListGroup.Item>
               <div className="d-flex justify-content-between align-items-center">
                 <span className={`text-${variants[agreement.status]}`}>
@@ -85,6 +86,12 @@ const TransactionSteps = ({ transaction, addApproval }) => {
                 </div>
               </div>
             </ListGroup.Item>
+          );
+        }
+
+        return (
+          <>
+            {statusUi}
             <RejectDialog
               handleClose={handleClose}
               show={show}
@@ -118,12 +125,12 @@ const TransactionSteps = ({ transaction, addApproval }) => {
               <ListGroup.Item>
                 {t("amount")}: {agreement.amount} {agreement.currencyCode}
               </ListGroup.Item>
-              {renderApprovalButton(agreement)}
+              {renderApproval(agreement)}
             </ListGroup>
           </div>
         </ListGroup.Item>
       )),
-    [bankInfo, renderApprovalButton]
+    [bankInfo, renderApproval]
   );
   return <>{stepsUi}</>;
 };

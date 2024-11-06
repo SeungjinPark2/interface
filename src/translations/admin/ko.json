@@ -6,5 +6,6 @@
   "associateButton": "등록",
   "associateSuccess": "환거래 은행 등록 성공",
   "associateFailure": "환거래 은행 등록 실패",
-  "correspondentList": "환거래 은행 목록"
+  "correspondentList": "환거래 은행 목록",
+  "waitingToBeApprovedTxs": "승인 대기중인 트렌젝션"
 }
